@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6">
+        <h3 class="">Õppekeskus <small><a href="http://www.v-maarja.ee/vmok/Tunniplaan_42.htm">orignaal tunniplaani leht</a></small></h3>
+      <ul class="list-unstyled">
+        {% for tp in dirs %}
+        <li>
+          <a href="/vmok/{{tp.path}}{% if last_tp_vmok != None %}/{{last_tp_vmok}}{%endif%}">
+          {% if tp.get("title") %}
+            {% if tp.get("bold") %}<strong>{% endif %}
+                {{ tp.title }} ({% if tp.path == "future" %}Kinnitamata{% else %}{{ tp.path.replace("/", "-") }}{% endif %})
+            {% if tp.get("bold") %}</strong>{% endif %}
+          {% else %}
+            {{ tp.path.replace("/", "-") }}
+          {% endif %}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <h3 class="">Gümnaasium <small><a href="http://www.v-maarja.ee/vmgym/Tunnijaotusplaan_58.htm">orignaal tunniplaan</a></small></h3>
+      <ul class="list-unstyled">
+        {% for tp in vmg_dirs %}
+          <li><a href="/vmg/{{ tp }}{% if last_tp_vmg != None %}/{{last_tp_vmg}}{%endif%}">{{ tp }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+</div>
+
+<hr>
+<p>
+Autor: <a href="https://plus.google.com/+ArtiZirk">Arti Zirk</a> <span class="text-muted">|</span> Lühike aadress siia: <button class="btn btn-link" style="padding: 0; margin-top: -3px;" data-toggle="modal" data-target="#tpartieeqrcode">tp.arti.ee</button>
+</p>
+
+
+<!-- Modal -->
+<div class="modal fade" id="tpartieeqrcode" tabindex="-1" role="dialog" aria-labelledby="tpartieeqrcodeLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button style="margin-top: 3px; margin-left: 10px;" type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="tpartieeqrcodeLabel">Skänni seda QR koodi oma telefoniga et avada tunniplaan.arti.ee</h4>
+      </div>
+      <div class="modal-body">
+          <img class="img-responsive" style="margin: auto; display: block;" src="/static/img/qrcode.png"></img>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Sulge</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}
