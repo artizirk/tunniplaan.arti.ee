@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, make_response, request, redirect
 import os
+import datetime
 
 app = Flask(__name__)
 
@@ -17,13 +18,19 @@ def index():
                     root = root[:-1]+"0"+root.split("/")[3]
                 root = root[1:]
                 dirs.append(root)
-    dirs = [{"path": x} for x in sorted(dirs)[::-1]]
-    #dirs[0]["title"] = "Järgmine nädal"
-    # dirs[0]["bold"] = True
-    dirs[1]["title"] = "Järgmine nädal"
-    #dirs[1]["bold"] = True
-    dirs[2]["title"] = "Praegune nädal"
-    dirs[2]["bold"] = True
+    dirs = [{"path": x,
+             "week_numb":datetime.datetime.strptime(x, "%Y/%m/%d").isocalendar()[1]}
+            for x in sorted(dirs)[::-1]]
+    cur_week_numb = datetime.datetime.now().isocalendar()[1]
+    for tp in dirs:
+        if tp["week_numb"] == cur_week_numb:
+            tp["title"] = "Praegune nädal"
+            tp["bold"] = True
+        elif tp["week_numb"]+1 == cur_week_numb:
+            tp["title"] = "Eelmine nädal"
+        elif tp["week_numb"]-1 == cur_week_numb:
+            tp["title"] = "Järgmine nädal"
+
     if os.path.exists(img_dir+"/future"):
         dirs.insert(0, {"path": "future"})
         dirs[0]["title"] = "Järgmine nädal"
