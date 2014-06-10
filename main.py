@@ -18,12 +18,12 @@ def index():
                 root = root[1:]
                 dirs.append(root)
     dirs = [{"path": x} for x in sorted(dirs)[::-1]]
-    #dirs[0]["title"] = "Järgmine nädal"
+    dirs[0]["title"] = "Järgmine nädal"
     # dirs[0]["bold"] = True
-    dirs[1]["title"] = "Järgmine nädal"
-    #dirs[1]["bold"] = True
-    dirs[2]["title"] = "Praegune nädal"
-    dirs[2]["bold"] = True
+    dirs[1]["title"] = "Praegune nädal"
+    dirs[1]["bold"] = True
+    dirs[2]["title"] = "Eelmine nädal"
+    #dirs[2]["bold"] = True
     if os.path.exists(img_dir+"/future"):
         dirs.insert(0, {"path": "future"})
         dirs[0]["title"] = "Järgmine nädal"
