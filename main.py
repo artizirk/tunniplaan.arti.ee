@@ -45,8 +45,8 @@ def index():
 
 @app.route("/vmok/<aasta>/", defaults={"kuu": "", "paev": ""})
 @app.route("/vmok/<aasta>/<tuup>/<name>", defaults={"kuu": "", "paev": ""})
-@app.route("/vmok/<int:aasta>/<kuu>/<int:paev>/<tuup>/<name>")
-@app.route("/vmok/<int:aasta>/<kuu>/<int:paev>/")
+@app.route("/vmok/<int:aasta>/<kuu>/<paev>/<tuup>/<name>")
+@app.route("/vmok/<int:aasta>/<kuu>/<paev>/")
 def vmok_show(aasta, kuu, paev, tuup=None, name=None):
     img_dir = os.path.abspath("./static/img/vmok")
     if tuup not in ("c", "r", "t"):
