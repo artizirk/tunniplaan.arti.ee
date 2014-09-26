@@ -9,6 +9,7 @@ from IPython import embed
 from datetime import datetime
 import inspect
 import sys
+from datetime import datetime
 
 _real_print = print
 def print(*args, **kwargs):
@@ -56,7 +57,9 @@ muu = items[3:]
 #    print("vist on ka muudatused: {}".format(str(items[3:])))
 
 print("laen alla tunniplaane")
-for tunniplaan in tunniplaanid:
+for i, tunniplaan in enumerate(tunniplaanid):
+    if len(tunniplaan[1]) > 11:
+        tunniplaan = (tunniplaan[0], tunniplaan[1][28:].strip("/"))
     future = False
     print("{0}".format(*tunniplaan))
     #embed();exit()
@@ -66,7 +69,16 @@ for tunniplaan in tunniplaanid:
 
     if not future:
         date_end = tunniplaan[0].split("-")[-1].strip()
-        date_start = tunniplaan[0].split(" ")[1]+"."+date_end[-4:]
+        date_start = tunniplaan[0].split(" ")[1]
+        if tunniplaan[0].count(" ") == 1:
+            date_start = date_start.split("-")[0]
+        #if i == 1: embed()#;exit()
+        if date_end.count(".") == 1:
+            today = datetime.today()
+            date_start = date_start+"."+str(today.year)
+        else:
+            date_start = date_start+"."+date_end[-4:]
+    #if i == 1: embed()#;exit()
     base_dir = os.path.abspath(img_path)
     if not future:
         t_dir = base_dir+"/{2}/{1}/{0}".format(*date_start.split("."))
