@@ -86,7 +86,7 @@ for i, tunniplaan in enumerate(tunniplaanid):
         #if tunniplaan[0].count(" ") == 1:
         #    date_start = date_start.split("-")[0]
         #if i == 1: embed()#;exit()
-        embed()
+        #embed()
         if date_end.count(".") == 1:
             today = datetime.today()
             date_start = date_start+"."+str(today.year)
