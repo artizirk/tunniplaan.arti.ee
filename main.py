@@ -30,6 +30,7 @@ def index():
             tp["title"] = "Eelmine nädal"
         elif tp["week_numb"]-1 == cur_week_numb:
             tp["title"] = "Järgmine nädal"
+    #dirs[0]["title"] = "Praegune nädal"
 
     if os.path.exists(img_dir+"/future"):
         dirs.insert(0, {"path": "future"})

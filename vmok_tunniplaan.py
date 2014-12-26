@@ -10,6 +10,7 @@ from datetime import datetime
 import inspect
 import sys
 from datetime import datetime
+import re
 
 _real_print = print
 def print(*args, **kwargs):
@@ -51,8 +52,17 @@ def save_tunniplaan(swf, data, d_dir):
 
 
 tunniplaanid = items[:3]
-muu = items[3:]
 
+# moar ugly hacks 
+tp_new=[]
+for name, url in tunniplaanid:
+    if url.endswith("swfcombiner.swf"):
+        url = url[:-15]
+    tp_new.append((name, url))
+tunniplaanid = tp_new
+
+muu = items[3:]
+#embed();exit()
 # if muu:
 #    print("vist on ka muudatused: {}".format(str(items[3:])))
 
@@ -68,11 +78,15 @@ for i, tunniplaan in enumerate(tunniplaanid):
         future = True
 
     if not future:
-        date_end = tunniplaan[0].split("-")[-1].strip()
-        date_start = tunniplaan[0].split(" ")[1]
-        if tunniplaan[0].count(" ") == 1:
-            date_start = date_start.split("-")[0]
+        maches = re.search("\s([0-9\.]+)\-([0-9\.]+)", tunniplaan[0])
+        #date_end = tunniplaan[0].split("-")[-1].strip()
+        #date_start = tunniplaan[0].split(" ")[1]
+        date_start = maches.group(1)
+        date_end = maches.group(2)
+        #if tunniplaan[0].count(" ") == 1:
+        #    date_start = date_start.split("-")[0]
         #if i == 1: embed()#;exit()
+        embed()
         if date_end.count(".") == 1:
             today = datetime.today()
             date_start = date_start+"."+str(today.year)
@@ -102,6 +116,7 @@ for i, tunniplaan in enumerate(tunniplaanid):
     r = requests.get(base_url+tunniplaan[1]+'/timetable.xml')
     r.encoding = "utf-8"
     data = r.text
+    #embed();exit()
     data = ET.fromstring(data)
 
     #embed();exit()
