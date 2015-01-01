@@ -51,3 +51,6 @@ docs/_build/
 static/img/vmg/
 static/img/vmok/
 archive/
+
+blog/
+.fuse*
