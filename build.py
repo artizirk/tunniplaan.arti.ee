@@ -1,4 +1,9 @@
-<!doctype html>
+#!/usr/bin/env python3
+import re
+import os
+import CommonMark
+
+main_template = """<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -30,17 +35,7 @@
         </ul>
       </header>
 <section>
-<h3>
-<a id="uus-algus" class="anchor" href="#uus-algus" aria-hidden="true"><span class="octicon octicon-link"></span> </a>Uus algus <small>(katse nr 2 &mdash; 23. aprill 2014)</small></h3>
-<p>2014-nda aasta aprillikuu lõpupoole otsustasin selle mobiilse tunniplaani rakenduse projekti uuesti ellu äratada ning ka lõpuni siis toimunud võrgurakendused kooli tundide raames.</p>
-
-<h3>
-<a id="ja-nii-see-algas" class="anchor" href="#ja-nii-see-algas" aria-hidden="true"><span class="octicon octicon-link"></span> </a>Ja nii see algas <small>(katse nr 1 &mdash; 15. veebruar 2013)</small></h3>
-<p>Idee sai alguse juba mõned aastad tagasi kuid laiskuse tõttu jäi see tunniplaani rakenduse kirjutamine lihtsalt ideeks. 15. veebruar 2013 ma siis lõpuks otsustasin, et rohkem ma seda Flashi rakenduse kasutamis piina ei kannata ning hakkasin esimesi koodiridu kirjutama. Eriti kaugele ma kahjuks selle esimese katsega ei jõudnud ning üsna kiirelt sai see väike skript liigutatud teiste sarnaste ebaõnnestunud ning paremaid aegu ootavate skriptide juurde.</p>
-<p>Skript ise on üsna lihtne. Kasutades Pythoni standard teeke tõmmatakse alla kooli tunniplaani nimekirja leht, käiakse see väikese regulaaravaldisega üle ning väljastatakse nimekiri üleval olevatest tunniplaanidest. Nagu all olevast koodis on võimalik näha siis sellega skripti töö piirdub.</p>
-<p><a href="http://i.imgur.com/qnal8Zy.png"><img src="http://i.imgur.com/qnal8Zy.png" title="Katse nr 1" /></a></p>
-<script src="https://gist.github.com/arti95/88468101c54745c85e90.js"></script>
-
+{posts}
       </section>
       <footer>
         <p>Selle projekti eest hoolitsevad <br>
@@ -63,3 +58,48 @@
 
   </body>
 </html>
+"""
+
+post_template = """
+<h3>
+<a id="{slug}" class="anchor" href="#{slug}" aria-hidden="true"><span class="octicon octicon-link"></span> </a>{title} <small>({date})</small></h3>
+{content}
+"""
+
+def yaml_loads(string):
+    """stupid minimal yaml like loader"""
+    out = {}
+    for line in string.strip().split("\n"):
+        key, val = line.split(":")
+        key = key.strip()
+        val = val.strip()
+        out[key] = val
+    return out
+
+
+POST_RE = re.compile(u'---(?P<meta>.*?)---(?P<body>.*)', re.DOTALL)
+
+posts = []
+
+parser = CommonMark.DocParser()
+renderer = CommonMark.HTMLRenderer()
+
+post_files = os.listdir("posts")
+for post_file in post_files:
+    with open("posts/"+post_file) as f:
+        content = f.read()
+        post_match = POST_RE.match(content)
+        if not post_match:
+            continue
+        meta = yaml_loads(post_match.group("meta"))
+        body = post_match.group('body')
+        post = post_template.format(content=body, **meta)
+        if post_file.endswith(".md"):
+            ast = parser.parse(post)
+            post = renderer.render(ast)
+        posts.append(post)
+
+
+with open("index.html", "w") as f:
+    f.write(main_template.replace("{posts}", "\n".join(posts)))
+print("done")
