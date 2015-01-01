@@ -31,15 +31,35 @@
       </header>
 <section>
 <h3>
-<a id="uus-algus" class="anchor" href="#uus-algus" aria-hidden="true"><span class="octicon octicon-link"></span> </a>Uus algus <small>(katse nr 2 &mdash; 23. aprill 2014)</small></h3>
-<p>2014-nda aasta aprillikuu lõpupoole otsustasin selle mobiilse tunniplaani rakenduse projekti uuesti ellu äratada ning ka lõpuni siis toimunud võrgurakendused kooli tundide raames.</p>
-
-<h3>
 <a id="ja-nii-see-algas" class="anchor" href="#ja-nii-see-algas" aria-hidden="true"><span class="octicon octicon-link"></span> </a>Ja nii see algas <small>(katse nr 1 &mdash; 15. veebruar 2013)</small></h3>
 <p>Idee sai alguse juba mõned aastad tagasi kuid laiskuse tõttu jäi see tunniplaani rakenduse kirjutamine lihtsalt ideeks. 15. veebruar 2013 ma siis lõpuks otsustasin, et rohkem ma seda Flashi rakenduse kasutamis piina ei kannata ning hakkasin esimesi koodiridu kirjutama. Eriti kaugele ma kahjuks selle esimese katsega ei jõudnud ning üsna kiirelt sai see väike skript liigutatud teiste sarnaste ebaõnnestunud ning paremaid aegu ootavate skriptide juurde.</p>
 <p>Skript ise on üsna lihtne. Kasutades Pythoni standard teeke tõmmatakse alla kooli tunniplaani nimekirja leht, käiakse see väikese regulaaravaldisega üle ning väljastatakse nimekiri üleval olevatest tunniplaanidest. Nagu all olevast koodis on võimalik näha siis sellega skripti töö piirdub.</p>
 <p><a href="http://i.imgur.com/qnal8Zy.png"><img src="http://i.imgur.com/qnal8Zy.png" title="Katse nr 1" /></a></p>
 <script src="https://gist.github.com/arti95/88468101c54745c85e90.js"></script>
+
+<h3>
+<a id="uus-algus" class="anchor" href="#uus-algus" aria-hidden="true"><span class="octicon octicon-link"></span> </a>Uus algus <small>(katse nr 2 &mdash; 23. aprill 2014)</small></h3>
+<p>2014-nda aasta aprillikuu lõpupoole otsustasin selle mobiilse tunniplaani
+rakenduse projekti uuesti ellu äratada ning ka lõpuni viia siis toimunud
+võrgurakendused kooli tundide raames.</p>
+<p>Kuna ma tollel hetkel enda esimest katset enam üles ei leidnud siis otsustasin
+uuesti nullist alustada.</p>
+<p>Algust sai tehtud <code>vmok_tunniplaan.py</code> failiga mille eesmärk on Väike-Maarja
+Õppekeskuse kodulehelt üles otsida hetkel üleval olevad tunniplaanid ning need
+siis alla laadida ja need <code>.png</code> piltideks teisendada.</p>
+<p>Eesmärk sai jaotatud mitmeks väiksemaks probleemiks, et neid kergem lahendada oleks</p>
+<ol>
+<li>HTML koodist tunniplaanide nimekirja välja lugemine</li>
+<li>Tunniplaani allalaadimine</li>
+<li>Flash <code>.swf</code> failide lugemine ja nendest <code>.png</code> piltide loomine</li>
+<li>Piltide salvestamine loogilisse kaustapuuse.</li>
+</ol>
+<p>Esimene probleem on õnneks üsna kergelt lahendatav kuna programmeerimiskeeles
+<a href="https://www.python.org/" title="Python programeerimiskeele koduleht">Python</a>, mida ma otsustasin kasutada terve selle projekti jaoks,
+on olemas üks teek nimega <a href="http://www.crummy.com/software/BeautifulSoup/" title="Beautiful Soup Python teegi koduleht">Beautiful Soup</a> millega on üsna lihtne
+HTML koodist ennast läbi närida. Lisaks sai ka kasutatud <a href="http://docs.python-requests.org/" title="Requests: HTTP for Humans">requests</a> teeki
+mis muudab HTTP käskude saatmise serverile palju palju kergemaks.</p>
+<script src="https://gist.github.com/arti95/6fb56a63ad90ae349725.js"></script>
 
       </section>
       <footer>
