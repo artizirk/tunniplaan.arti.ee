@@ -28,7 +28,7 @@ tehakse `.png` failid.
 kõigepealt oleks vaja `static/img/` kausta tunniplaanid tekitada
 kindel kataloogi puu mis peaks välja nägema selline
 
-[Imgur](http://i.imgur.com/OoRdgcF.png)
+![kataloogi puu](http://i.imgur.com/OoRdgcF.png)
 
 selleks tuleks kasutada `vmg_tunniplaan.py` ja `vmok_tunniplaan.py` skripte
 mis käivitumisel tõmbavad kooli kodukalt alla tunniplaanid ning panevad need
