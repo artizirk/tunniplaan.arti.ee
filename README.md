@@ -1,4 +1,4 @@
-# tunniplaan.arti.ee lehe lähtekood
+# [tunniplaan.arti.ee](http://tunniplaan.arti.ee/) lehe lähtekood
 
 Siin on siis selle lehe lähtekood. Kood ise on üsna vähe confitav aga peaks olema
 üsna kergelt mõistetav. http://tunniplaan.arti.ee/blog lehelt võib leid ka mõninga
