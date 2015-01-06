@@ -101,5 +101,5 @@ for post_file in post_files:
 
 
 with open("index.html", "w") as f:
-    f.write(main_template.replace("{posts}", "\n".join(posts)))
+    f.write(main_template.replace("{posts}", "\n<hr>\n".join(posts)))
 print("done")
