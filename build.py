@@ -84,7 +84,7 @@ posts = []
 parser = CommonMark.DocParser()
 renderer = CommonMark.HTMLRenderer()
 
-post_files = os.listdir("posts")
+post_files = sorted(os.listdir("posts"))[::-1]
 for post_file in post_files:
     with open("posts/"+post_file) as f:
         content = f.read()
