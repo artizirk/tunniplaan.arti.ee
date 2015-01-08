@@ -1,6 +1,68 @@
-/* Customize container */
+/* suurte ekraanide peal piirame laiust */
 @media (min-width: 768px) {
   .container {
     max-width: 730px;
   }
+}
+
+/* telefonide peal header vähe kõrgemale */
+@media (max-width: 768px) {
+    .header {
+        margin-top: -10px;
+    }
+    .list-unstyled li > a {
+        line-height: 200%;
+    }
+}
+
+/* telefonide peal tekst vähe väiksemaks */
+@media (max-width: 650px) {
+    .header small {
+        display: block;
+    }
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+}
+
+/* footeri parem kujundus väikese ekraani peal*/
+@media (max-width: 330px) {
+    span.break-on-mobl {
+        display: inline-block;
+    }
+    span.hide-on-mobl {
+        display: none;
+    }
+}
+
+/* tp.arti.ee modali sulge nupp keskele ja väheke suuremaks */
+.modal-footer button {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+
+/* tunniplaani kuvamis lehe peal kõik keskele */
+.centre {
+    text-align: center;
+}
+.btn-group ul {
+    text-align: left;
+}
+
+.header {
+    text-align: center;
 }
