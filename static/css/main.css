@@ -32,6 +32,11 @@
         font-size: 25px;
     }
 
+    .pull-right-footer {
+        clear: both;
+        display: block;
+        line-height: 200%
+    }
 }
 
 /* footeri parem kujundus väikese ekraani peal*/
@@ -41,6 +46,12 @@
     }
     span.hide-on-mobl {
         display: none;
+    }
+}
+
+@media (min-width: 650px) {
+    .pull-right-footer {
+        float: right;
     }
 }
 
