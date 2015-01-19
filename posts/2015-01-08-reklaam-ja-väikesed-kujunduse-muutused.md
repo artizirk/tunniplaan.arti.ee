@@ -1,6 +1,6 @@
 ---
 title: Reklaam ja väikesed kujunduse muutused
-slug: reklaam-ja-väikesed kujunduse-muutused
+slug: reklaam-ja-väikesed-kujunduse-muutused
 date: 8. jaanuar 2015
 ---
 
