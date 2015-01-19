@@ -15,14 +15,21 @@ pidanud seda juba tegelikuses tükkaega tagasi tegema aga noh parem hilja kui
 Kujunduse poole pealt on muutsin natuke teksti suuruseid ning mängisin ka natuke
 CSS `@media` query asjadega ning tulemus on kohe palju parem
 
-ülemine pilt on vana kujundus ning alumine on uue kujundusega koduleht
+Vasak pilt on vana kujundus ning parem on uue kujundusega koduleht
 
-![Vana avaleht](http://i.imgur.com/NGlzvKy.png)
+<img src="http://i.imgur.com/NGlzvKy.png"
+      alt="Vana kujudnus"
+      style="display:inline; width: 49%;">
+<img src="http://i.imgur.com/o9A9ki2.png"
+      alt="Uus kujudnus"
+      style="display:inline; float: right; width: 49%;">
 
-![Uus avaleht](http://i.imgur.com/o9A9ki2.png)
+Samamoodi väikesed muudatused tunniplaani kuvamis lehel
 
-samamoodi väikesed muudatused tunniplaani kuvamis lehel
-
-![Vana tunniplaani kuvaja](http://i.imgur.com/ezRywuh.png)
-
-![Uus tunniplaani kuvaja](http://i.imgur.com/mXe1SCE.png)
+<img src="http://i.imgur.com/ezRywuh.png" 
+      alt="Vana kujudnus"
+      style="display:inline; width: 49%;">
+<img src="http://i.imgur.com/mXe1SCE.png" 
+      alt="Uus kujudnus"
+      style="display:inline; float: right; width: 49%;">
+<br>
