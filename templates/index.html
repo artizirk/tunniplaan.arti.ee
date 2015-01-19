@@ -2,7 +2,8 @@
 {% block content %}
 <div class="row">
     <div class="col-sm-6">
-        <h3 class="">Õppekeskus <small><a href="http://www.v-maarja.ee/vmok/Tunniplaan_42.htm">orignaal<span class="hide-on-mobl"> tunniplaan</span></a></small></h3>
+        <h3 class="">Õppekeskus <small><a href="http://www.v-maarja.ee/vmok/Tunniplaan_42.htm">originaal<span class="hide-on-mobl"> 
+tunniplaan</span></a></small></h3>
       <ul class="list-unstyled">
         {% for tp in dirs %}
         <li>
@@ -20,7 +21,8 @@
       </ul>
     </div>
     <div class="col-sm-6">
-      <h3 class="">Gümnaasium <small><a href="http://www.v-maarja.ee/vmgym/Tunnijaotusplaan_58.htm">orignaal<span class="hide-on-mobl"> tunniplaan</span></a></small></h3>
+      <h3 class="">Gümnaasium <small><a href="http://www.v-maarja.ee/vmgym/Tunnijaotusplaan_58.htm">originaal<span class="hide-on-mobl"> 
+tunniplaan</span></a></small></h3>
       <ul class="list-unstyled">
         {% for tp in vmg_dirs %}
           <li><a href="/vmg/{{ tp }}{% if last_tp_vmg != None %}/{{last_tp_vmg}}{%endif%}">{{ tp }}</a></li>
@@ -31,7 +33,8 @@
 
 <hr>
 <footer>
-<span class="hide-on-mobl">Lühike aadress siia: </span><button class="btn btn-link" style="padding: 0; margin-top: -3px;" data-toggle="modal" data-target="#tpartieeqrcode">tp.arti.ee</button> | <span class="break-on-mobl"><a href="/archive">Arhiiv</a> | <a href="/blog">Blogi</a> | <a href="/blog">Teave</a></span>
+<span class="hide-on-mobl">Lühike aadress siia: </span><a href="#tpartieeqrcode" class="btn btn-link" style="padding: 0; margin-top: -3px;" data-toggle="modal" data-target="#tpartieeqrcode">tp.arti.ee</a> | <span class="break-on-mobl"><a href="/archive">Arhiiv</a> | <a href="/blog">Blogi</a> | <a href="/blog">Teave</a></span>
+<a href="http://goo.gl/forms/Q3XOiBA3Mb" class="pull-right-footer">Tagasiside küsitlus</a>
 </footer>
 
 
