@@ -54,3 +54,5 @@ archive/
 
 blog/
 .fuse*
+
+venv/
