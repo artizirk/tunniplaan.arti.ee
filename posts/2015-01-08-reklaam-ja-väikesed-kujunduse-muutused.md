@@ -5,7 +5,7 @@ date: 8. jaanuar 2015
 ---
 
 Täna sai siis üles pandud väikesed lipikud koolis stendide peale. Me oleks
-pidanud seda juba tegelikuses tükkaega tagasi tegema aga noh parem hilja kui
+pidanud seda juba tükk aega tagasi tegema aga parem hilja kui
 üldse mitte kunagi.
 
 ![Kuulutus gümnaasiumi stendi peal](http://i.imgur.com/p6312K7l.jpg)

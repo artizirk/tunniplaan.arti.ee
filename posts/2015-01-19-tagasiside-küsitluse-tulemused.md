@@ -4,11 +4,11 @@ slug: tagasiside-küsitluse-tulemused
 date: 19. jaanuar 2015
 ---
 
-Nädal on möödas küsitluse ülespanekust, nii et paras aeg on vaadata tulemusi
+Nädal on möödas küsitluse ülespanekust, nii et on paras aeg vaadata tulemusi
 
 #### Kui tihti kasutad/kasutaksid mobiilset tunniplaani rakendust?
 
-56% vastanutest kasutab tunniplaani rakendust vähemalt kord nädalas mis on
+56% vastanutest kasutab tunniplaani rakendust vähemalt kord nädalas, mis on
 minuarvates päris hea tulemus
 
 ![chart](http://i.imgur.com/BVPwr7S.png)
