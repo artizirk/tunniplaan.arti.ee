@@ -5,7 +5,7 @@ date: 19. jaanuar 2015
 ---
 
 Täna on ProgeTiigri Finaali esitluse saatmise tähtpäev.
-Kõik, kes on huvitatud, võivad esitlust vaadata aadressil [tp.arti.ee/esitlus](http://tp.arti.ee/esitlus)
+Kõik, kes on huvitatud, võivad esitlust vaadata aadressil [tp.arti.ee/esitlus](http://tp.arti.ee/esitlus).
 
 Selle esitluse varasemat versiooni sai ka 15.jaanuar neljapäeval 11. klassile 
 esitatud, mis meil Kailiga eriti hästi välja ei tulnud, kuna me esitlust varem läbi
