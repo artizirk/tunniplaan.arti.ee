@@ -14,4 +14,4 @@ ei harjutanud.
 Finaal ise toimub 24. jaanuaril Tallinna Lauluväljakul kell 11:00, meie esineme oma
 esitusega kell 12:00.
 
-facebooki ürituse link [https://www.facebook.com/events/493551564119105](https://www.facebook.com/events/493551564119105).
+Facebooki ürituse link [https://www.facebook.com/events/493551564119105](https://www.facebook.com/events/493551564119105).
