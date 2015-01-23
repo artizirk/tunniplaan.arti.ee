@@ -4,7 +4,7 @@ slug: tagasiside-küsitluse-tulemused
 date: 19. jaanuar 2015
 ---
 
-Nädal on möödas küsitluse ülespanekust, nii, et on paras aeg vaadata tulemusi.
+Nädal on möödas küsitluse ülespanekust, seega on paras aeg vaadata tulemusi.
 
 #### Kui tihti kasutad/kasutaksid mobiilset tunniplaani rakendust?
 
