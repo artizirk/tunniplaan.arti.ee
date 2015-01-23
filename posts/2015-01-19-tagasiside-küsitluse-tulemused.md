@@ -4,12 +4,12 @@ slug: tagasiside-küsitluse-tulemused
 date: 19. jaanuar 2015
 ---
 
-Nädal on möödas küsitluse ülespanekust, nii et on paras aeg vaadata tulemusi
+Nädal on möödas küsitluse ülespanekust, nii, et on paras aeg vaadata tulemusi.
 
 #### Kui tihti kasutad/kasutaksid mobiilset tunniplaani rakendust?
 
 56% vastanutest kasutab tunniplaani rakendust vähemalt kord nädalas, mis on
-minuarvates päris hea tulemus
+minu arvates päris hea tulemus.
 
 ![chart](http://i.imgur.com/BVPwr7S.png)
 
@@ -52,4 +52,4 @@ Selle küsimusega tuli terve posu huvitavaid vastuseid millest mõned olid selli
 > Võiks teha vmg appi nii androidile kui ka apple-le, kus saaks vmg uudistega kursis olla, pilte vaadata jne. Nagu vmg koduleht
 
 
-Kõigi vastustega saab tutvuda [siin](https://docs.google.com/forms/d/1dUzYZ11pWdNM4GiKo_4m3NPWWcwNYvedWq6QJteAQQc/viewanalytics)
+Kõigi vastustega saab tutvuda [siin](https://docs.google.com/forms/d/1dUzYZ11pWdNM4GiKo_4m3NPWWcwNYvedWq6QJteAQQc/viewanalytics).
