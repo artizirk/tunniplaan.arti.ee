@@ -11,7 +11,7 @@ ettevalmistus selleks on meil Kailiga peaaegu null.
 
 Pabinas sai poole tunni jooksul [vmrobootika](http://vmrobootika.blogspot.com/2014/10/kui-on-vajadus-leia-lahendus.html)
 blogisse üks meie rakenduseteemaline postitus tehtud ning ka kaks slaidi kirjutatud
-[impress.js](https://www.facebook.com/SomeruANK)'ga.
+[impress.js](http://bartaz.github.io/impress.js/)'ga.
 
 Plaanis oli ka suure ekraani peal näidata telefoni ekraani, et meie rakendust seal kuvada,
 aga see õnnestunud, kuna wifi levi oli seal hindajate ruumis väga kehva 
