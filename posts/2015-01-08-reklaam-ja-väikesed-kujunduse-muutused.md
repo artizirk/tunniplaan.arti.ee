@@ -13,7 +13,7 @@ pidanud seda juba tükk aega tagasi tegema, aga parem hilja kui
 ![Kuulutus õpekeskuse stendi peal](http://i.imgur.com/2frKLual.jpg)
 
 Kujunduse poole pealt muutsin natuke teksti suuruseid ning mängisin ka natuke
-CSS `@media` query asjadega ja tulemus on kohe palju parem.
+CSS `@media` query asjadega ja tulemus sai kohe palju parem.
 
 Vasakpoolne pilt on vanast kujundusest ning parempoolne on uue kujundusega 
 kodulehest.
