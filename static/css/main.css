@@ -1,7 +1,11 @@
+body {
+    margin-bottom: 10px;
+}
+
 /* suurte ekraanide peal piirame laiust */
 @media (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 760px;
   }
 }
 

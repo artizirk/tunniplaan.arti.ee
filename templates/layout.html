@@ -3,10 +3,16 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    {% if head_title is not defined%}
+      {% set head_title="Väike-Maarja koolide Flashi vabad tunniplaanid"%}
+    {% endif %}
+    {% if header_title is not defined %}
+      {% set header_title="kuna flash ei tööta igal pool" %}
+    {% endif %}
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Väike-Maarja koolide Flashi vabad tunniplaanid</title>
+        <title>{{ head_title }}</title>
         <meta name="description" content="Väike-Maarja Õppekeskuse ja Gümnaasiumi tunniplaani kuvaja mis töötab telefonis">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,8 +26,8 @@
         <![endif]-->
     <div class="container">
 
-    <div class="header">
-        <h1><a href="/">tunniplaan.arti.ee</a> <small>kuna flash ei tööta igal pool</small></h1>
+    <div class="header hidden-print">
+        <h1><a href="/">tunniplaan.arti.ee</a> <small>{{ header_title }}</small></h1>
     </div>
 
     {% block content %}{% endblock %}

@@ -10,7 +10,8 @@
     </button>
     <ul class="dropdown-menu" role="menu">
       {% for name in l %}
-      <li><a href="{{date}}/{{t}}/{{name}}">{{"".join(name.split(".")[:-1])}}</a></li>
+      {% set name = name[:-4] %}
+      <li><a href="{{date}}/{{t}}/{{name}}">{{name}}</a></li>
       {% endfor %}
     </ul>
   </div>
@@ -23,5 +24,9 @@
 {% endblock %}
 
 {% block image %}
-<a href="{{img_path}}"><img class="center-block" style="max-width:100%; height: auto"src="{{img_path}}"></a>
+<img class="center-block" style="max-width:100%; height: auto"src="{{img_path}}">
+<div class="centre hidden-print" id="tp-bottom-buttons">
+  <a href="{{img_path}}" class="btn btn-default" download="{{tp_name}}.png">Lae tunniplaan alla</a>
+</div>
 {% endblock %}
+
