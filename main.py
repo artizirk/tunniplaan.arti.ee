@@ -78,15 +78,20 @@ def vmok_show(aasta, kuu, paev, tuup=None, name=None):
 
     names = ("Grupid", "Õpetajad", "Ruumid")
 
+    type_pairs = {"c":"grupi", "r":"ruumi", "t":""}
+
     tp_name = name[:-4]
+    if tuup == "c":
+        tp_name = "".join(tp_name.split(" ")[0])
+    tp_type = type_pairs[tuup]
 
     resp = make_response(render_template("show_tp.html", img_path=img_path,
                                          tp_name=tp_name,
                                          names=names,
                                          t_list=[c_list, t_list, r_list],
                                          date=date,
-                                         head_title="Väike-Maarja Õppekeskuse {} grupi Flashi vabad tunniplaan".format("".join(tp_name.split(" ")[0])),
-                                         header_title="{} grupi tunniplaan mobiilseadmes".format("".join(tp_name.split(" ")[0]))))
+                                         head_title="Väike-Maarja Õppekeskuse {} {} Flashi vabad tunniplaan".format(tp_name,tp_type),
+                                         header_title="{} {} tunniplaan mobiilseadmes".format(tp_name,tp_type)))
     resp.set_cookie('last_tp_vmok', value='{}/{}'.format(tuup, tp_name),
                     max_age=2592000)
     return resp
@@ -113,15 +118,18 @@ def vmg_show(date, tuup=None, name=None):
 
     names = ("Klassid", "Õpetajad", "Ruumid")
 
+    type_pairs = {"c":"klassi", "r":"ruumi", "t":""}
+
     tp_name = name[:-4]
+    tp_type = type_pairs[tuup]
 
     resp = make_response(render_template("show_tp.html", img_path=img_path,
                                          tp_name=tp_name,
                                          names=names,
                                          t_list=[c_list, t_list, r_list],
                                          date="/vmg/{}".format(date),
-                                         head_title="Väike-Maarja Gümnaasiumi {} klassi Flashi vabad tunniplaan".format(tp_name),
-                                         header_title="{} klassi tunniplaan mobiilseadmes".format(tp_name)))
+                                         head_title="Väike-Maarja Gümnaasiumi {} {} Flashi vabad tunniplaan".format(tp_name,tp_type),
+                                         header_title="{} {} tunniplaan mobiilseadmes".format(tp_name,tp_type)))
     resp.set_cookie('last_tp_vmg', '{}/{}'.format(tuup, tp_name),
                     max_age=2592000)
     return resp
