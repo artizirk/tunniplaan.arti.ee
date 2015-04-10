@@ -81,6 +81,7 @@ def vmok_show(aasta, kuu, paev, tuup=None, name=None):
     type_pairs = {"c":"grupi", "r":"ruumi", "t":""}
 
     tp_name = name[:-4]
+    page_tp_name = tp_name
     if tuup == "c":
         tp_name = "".join(tp_name.split(" ")[0])
     tp_type = type_pairs[tuup]
@@ -92,7 +93,7 @@ def vmok_show(aasta, kuu, paev, tuup=None, name=None):
                                          date=date,
                                          head_title="Väike-Maarja Õppekeskuse {} {} Flashi vabad tunniplaan".format(tp_name,tp_type),
                                          header_title="{} {} tunniplaan mobiilseadmes".format(tp_name,tp_type)))
-    resp.set_cookie('last_tp_vmok', value='{}/{}'.format(tuup, tp_name),
+    resp.set_cookie('last_tp_vmok', value='{}/{}'.format(tuup, page_tp_name),
                     max_age=2592000)
     return resp
 
