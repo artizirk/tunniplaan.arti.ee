@@ -18,4 +18,4 @@ koodis on võimalik näha, siis sellega skripti töö piirdubki.
 
 <a href="http://i.imgur.com/qnal8Zy.png"><img src="http://i.imgur.com/qnal8Zy.png" title="Katse nr 1" /></a>
 
-<script src="https://gist.github.com/arti95/88468101c54745c85e90.js"></script>
+<script src="https://gist.github.com/artizirk/88468101c54745c85e90.js"></script>
