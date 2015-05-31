@@ -19,10 +19,9 @@ else:
 leht = requests.get(url).text
 soup = BeautifulSoup(leht)
 sisu = soup.find(id="sisu_env")
-items = [("III veerand I - IV klassid (2014-2015 õa)", "tunniplaan2"),
-            ("III veerand V - XII klassid (2014-2015 õa)", "tunniplaan")]
+items = [("IV veerand I - IV klassid (2014-2015 õa)", "tunniplaan2"),
+            ("IV veerand V - XII klassid (2014-2015 õa)", "tunniplaan")]
 
-items = [("IV veerand V - XII klassid (2014-2015 õa)","tunniplaan")]
 
 def save_tunniplaan(swf, data, d_dir):
     subprocess.call(['wget', base_url+tunniplaan[1]+swf,

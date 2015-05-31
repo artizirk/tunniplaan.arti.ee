@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, make_response, request, redirect
+from flask import Flask, render_template, make_response, request, redirect, abort
 import os
 import datetime
 
 app = Flask(__name__)
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
 
 
 @app.route("/")
@@ -50,8 +54,12 @@ def vmok_show(aasta, kuu, paev, tuup=None, name=None):
     img_dir = os.path.abspath("./static/img/vmok")
     if tuup not in ("c", "r", "t"):
         tuup = "c"
-    dir_list = os.listdir(img_dir+"/{}/{}/{}/{}".format(aasta,
-                                                        kuu, paev, tuup))
+    try:
+        dir_list = os.listdir(img_dir+"/{}/{}/{}/{}".format(aasta,
+                                                            kuu, paev, tuup))
+    except FileNotFoundError as err:
+        abort(404)
+
     if name and not name.endswith(".png"):
         name += ".png"
     if name not in dir_list:
@@ -104,7 +112,10 @@ def vmg_show(date, tuup=None, name=None):
     img_dir = os.path.abspath("./static/img/vmg")
     if tuup not in ("c", "r", "t"):
         tuup = "c"
-    dir_list = os.listdir(img_dir+"/{}/{}".format(date, tuup))
+    try:
+        dir_list = os.listdir(img_dir+"/{}/{}".format(date, tuup))
+    except FileNotFoundError as err:
+        abort(404)
 
     if name and not name.endswith(".png"):
         name += ".png"
