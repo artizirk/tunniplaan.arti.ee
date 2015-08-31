@@ -114,7 +114,7 @@ for i, tunniplaan in enumerate(tunniplaanid):
     print("loodud temp dir:{}".format(temp_dir))
 
     r = requests.get(base_url+tunniplaan[1]+'/timetable.xml')
-    r.encoding = "iso-8859-1"
+    r.encoding = "utf-8"
     data = r.text
     #embed();exit()
     data = ET.fromstring(data)
