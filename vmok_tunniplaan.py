@@ -68,8 +68,8 @@ muu = items[3:]
 
 print("laen alla tunniplaane")
 for i, tunniplaan in enumerate(tunniplaanid):
-    if len(tunniplaan[1]) > 11:
-        tunniplaan = (tunniplaan[0], tunniplaan[1][28:].strip("/"))
+    #if len(tunniplaan[1]) > 11:
+    #    tunniplaan = (tunniplaan[0], tunniplaan[1][28:].strip("/"))
     future = False
     print("{0}".format(*tunniplaan))
     #embed();exit()
@@ -114,7 +114,7 @@ for i, tunniplaan in enumerate(tunniplaanid):
     print("loodud temp dir:{}".format(temp_dir))
 
     r = requests.get(base_url+tunniplaan[1]+'/timetable.xml')
-    r.encoding = "utf-8"
+    r.encoding = "iso-8859-1"
     data = r.text
     #embed();exit()
     data = ET.fromstring(data)
