@@ -43,9 +43,13 @@ def index():
     vmg_dir = os.path.abspath("./static/img/vmg")
     vmg_dirs = os.listdir(vmg_dir)
 
-    return render_template("index.html", dirs=dirs, vmg_dirs=vmg_dirs,
+    jogeva_dir = os.path.abspath("./static/img/jogeva")
+    jogeva_dirs = os.listdir(jogeva_dir)
+
+    return render_template("index.html", dirs=dirs, vmg_dirs=vmg_dirs, jogeva_dirs=jogeva_dirs,
                            last_tp_vmg=request.cookies.get("last_tp_vmg"),
-                           last_tp_vmok=request.cookies.get("last_tp_vmok"))
+                           last_tp_vmok=request.cookies.get("last_tp_vmok"),
+                           last_tp_jogeva=request.cookies.get("last_tp_jogeva"))
 
 
 @app.route("/vmok/<int:aasta>/<kuu>/<paev>/<tuup>/<name>")
@@ -130,7 +134,7 @@ def vmg_show(date, tuup=None, name=None):
 
     names = ("Klassid", "Õpetajad", "Ruumid")
 
-    type_pairs = {"c":"klassi", "r":"ruumi", "t":""}
+    type_pairs = {"c":"", "r":"ruumi", "t":""}
 
     tp_name = name[:-4]
     tp_type = type_pairs[tuup]
@@ -143,6 +147,46 @@ def vmg_show(date, tuup=None, name=None):
                                          head_title="Väike-Maarja Gümnaasiumi {} {} Flashi vabad tunniplaan".format(tp_name,tp_type),
                                          header_title="{} {} tunniplaan mobiilseadmes".format(tp_name,tp_type)))
     resp.set_cookie('last_tp_vmg', '{}/{}'.format(tuup, tp_name),
+                    max_age=2592000)
+    return resp
+
+@app.route("/jogeva/<date>/")
+@app.route("/jogeva/<date>/<tuup>/<name>")
+def jogeva_show(date, tuup=None, name=None):
+    img_dir = os.path.abspath("./static/img/jogeva")
+    if tuup not in ("c", "r", "t"):
+        tuup = "c"
+    try:
+        dir_list = os.listdir(img_dir+"/{}/{}".format(date, tuup))
+    except FileNotFoundError as err:
+        abort(404)
+
+    if name and not name.endswith(".png"):
+        name += ".png"
+    if name not in dir_list:
+        name = dir_list[-1]
+    img_path = "/{}/{}/{}".format(date, tuup, name)
+    img_path = "/static/img/jogeva"+img_path
+
+    c_list = sorted(os.listdir(img_dir+"/{}/{}".format(date, "c")))
+    r_list = sorted(os.listdir(img_dir+"/{}/{}".format(date, "r")))
+    t_list = sorted(os.listdir(img_dir+"/{}/{}".format(date, "t")))
+
+    names = ("Klassid", "Õpetajad", "Ruumid")
+
+    type_pairs = {"c":"klassi", "r":"ruumi", "t":""}
+
+    tp_name = name[:-4]
+    tp_type = type_pairs[tuup]
+
+    resp = make_response(render_template("show_tp.html", img_path=img_path,
+                                         tp_name=tp_name,
+                                         names=names,
+                                         t_list=[c_list, t_list, r_list],
+                                         date="/jogeva/{}".format(date),
+                                         head_title="Jõgevamaa Gümnaasiumi {} {} Flashi vabad tunniplaan".format(tp_name,tp_type),
+                                         header_title="{} {} tunniplaan mobiilseadmes".format(tp_name,tp_type)))
+    resp.set_cookie('last_tp_jogeva', '{}/{}'.format(tuup, tp_name),
                     max_age=2592000)
     return resp
 

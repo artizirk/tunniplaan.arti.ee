@@ -28,7 +28,7 @@ else:
 
 
 leht = requests.get(url).text
-soup = BeautifulSoup(leht)
+soup = BeautifulSoup(leht, "html.parser")
 sisu = soup.find(id="sisu_env")
 items = [(x.get_text(), x.get("href"))
          for x in sisu.find_all("a") if x.get("href")]
@@ -53,11 +53,13 @@ def save_tunniplaan(swf, data, d_dir):
 
 tunniplaanid = items[:3]
 
-# moar ugly hacks 
+# moar ugly hacks
 tp_new=[]
 for name, url in tunniplaanid:
     if url.endswith("swfcombiner.swf"):
         url = url[:-15]
+    if url.startswith("http://www.v-maarja.ee/vmok/"):
+        url = url[28:]
     tp_new.append((name, url))
 tunniplaanid = tp_new
 
