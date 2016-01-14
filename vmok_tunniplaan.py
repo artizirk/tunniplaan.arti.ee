@@ -19,8 +19,9 @@ def print(*args, **kwargs):
 
 
 
+url = "http://vmok.v-maarja.ee/oppetoo/tunniplaan/"
 base_url = "http://www.v-maarja.ee/vmok/"
-url = base_url + "Tunniplaan_42.htm"
+
 if os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe()))).startswith("/srv/http/tunniplaan.arti.ee/"):
     img_path = "/srv/http/tunniplaan.arti.ee/static/img/vmok"
 else:
@@ -29,7 +30,7 @@ else:
 
 leht = requests.get(url).text
 soup = BeautifulSoup(leht, "html.parser")
-sisu = soup.find(id="sisu_env")
+sisu = soup.find("div", {"class":"sidenews"})
 items = [(x.get_text(), x.get("href"))
          for x in sisu.find_all("a") if x.get("href")]
 #embed();exit()
