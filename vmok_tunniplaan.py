@@ -81,11 +81,15 @@ for i, tunniplaan in enumerate(tunniplaanid):
         future = True
 
     if not future:
-        maches = re.search("\s([0-9\.]+)\-([0-9\.]+)", tunniplaan[0])
+        if tunniplaan[0].count("-"):
+            print(tunniplaan[0])
+        maches = re.search("\s([0-9\.-]+)\-([0-9\.]+)", tunniplaan[0])
         #date_end = tunniplaan[0].split("-")[-1].strip()
         #date_start = tunniplaan[0].split(" ")[1]
         date_start = maches.group(1)
+        print("date_start:", date_start)
         date_end = maches.group(2)
+        print("date_end:", date_end)
         #if tunniplaan[0].count(" ") == 1:
         #    date_start = date_start.split("-")[0]
         #if i == 1: embed()#;exit()
@@ -98,7 +102,14 @@ for i, tunniplaan in enumerate(tunniplaanid):
     #if i == 1: embed()#;exit()
     base_dir = os.path.abspath(img_path)
     if not future:
-        t_dir = base_dir+"/{2}/{1}/{0}".format(*date_start.split("."))
+        __date_start = date_start.split(".")
+        print(__date_start)
+        if "-" in __date_start[0]:
+            __tmp = __date_start[0].split("-")
+            __tmp.append(__date_start[1])
+            __date_start = __tmp
+        print(__date_start)
+        t_dir = base_dir+"/{2}/{1}/{0}".format(*__date_start)
     else:
         t_dir = base_dir+"/future"
 
