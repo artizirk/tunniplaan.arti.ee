@@ -41,10 +41,10 @@ def index():
         dirs[0]["title"] = "Järgmine nädal"
 
     vmg_dir = os.path.abspath("./static/img/vmg")
-    vmg_dirs = os.listdir(vmg_dir)
+    vmg_dirs = sorted(os.listdir(vmg_dir), reverse=True)
 
     jogeva_dir = os.path.abspath("./static/img/jogeva")
-    jogeva_dirs = os.listdir(jogeva_dir)
+    jogeva_dirs = sorted(os.listdir(jogeva_dir), reverse=True)
 
     return render_template("index.html", dirs=dirs, vmg_dirs=vmg_dirs, jogeva_dirs=jogeva_dirs,
                            last_tp_vmg=request.cookies.get("last_tp_vmg"),
