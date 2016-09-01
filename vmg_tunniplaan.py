@@ -19,8 +19,8 @@ else:
 leht = requests.get(url).text
 soup = BeautifulSoup(leht)
 sisu = soup.find(id="sisu_env")
-items = [("III veerand I - IV klassid (2015-2016 õa)", "tunniplaan2"),
-            ("III veerand V - XII klassid (2015-2016 õa)", "tunniplaan")]
+items = [("I trimester I - IV klassid (2016-2017 õa)", "tunniplaan2"),
+            ("I trimester V - XII klassid (2016-2017 õa)", "tunniplaan")]
 
 
 def save_tunniplaan(swf, data, d_dir):
