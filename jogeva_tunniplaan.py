@@ -16,7 +16,7 @@ else:
 
 
 base_url = "http://moodle.gymnaasium.ee/"
-items = [("I veerand (2016-2017 õa)", "tunniplaan2016")]
+items = [("2016-2017 õa 1. Periood", "tunniplaan")]
 
 
 def save_tunniplaan(swf, data, d_dir):
